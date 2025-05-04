@@ -1,0 +1,12 @@
+Code Coverage Report
+======================
+
+This report provides a qualitative estimate of code coverage.
+
+Overall Coverage Estimate: Around 70% 
+
+Action Items:
+--------------
+1. Add a test class for KafkaConsumerConfig.
+2. Add a test class for ConsumerApplication.
+3. Refactor FilteredListener.
