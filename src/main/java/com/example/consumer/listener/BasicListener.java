@@ -12,6 +12,11 @@ public class BasicListener {
 
     @KafkaListener(topics = "app-topic", groupId = "spring1")
     public void listener(String message){
-        logger.info("Basic message : "+ message);
+        try {
+            logger.info("Basic message : "+ message);
+        } catch (Exception e) {
+            logger.error("Error processing message: " + message, e);
+        }
+
     }
 }

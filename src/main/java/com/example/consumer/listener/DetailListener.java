@@ -13,7 +13,11 @@ public class DetailListener {
 
     @KafkaListener(topics = "app-topic", groupId = "spring2")
     public void listenerDetails(ConsumerRecord<String, String> record){
-        logger.info(" details message : "+ record.value());
-        logger.info(" with key : "+ record.key());
+        try{
+            logger.info(" details message : "+ record.value());
+            logger.info(" with key : "+ record.key());
+        } catch (Exception e){
+            logger.error("An error occurred in DetailListener",e);
+        }
     }
 }

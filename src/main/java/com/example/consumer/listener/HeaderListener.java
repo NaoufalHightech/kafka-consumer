@@ -17,16 +17,18 @@ public class HeaderListener {
     private Logger logger = LoggerFactory.getLogger(HeaderListener.class);
 
     @KafkaListener(topics = "app-topic", groupId = "spring3", id = "myHeaderListener")
-    public void headerListener(@Payload String message,
-                               @Header(KafkaHeaders.KEY) String key,
+    public void headerListener(@Payload String message, @Header(KafkaHeaders.KEY) String key,
                                @Header(KafkaHeaders.OFFSET) int offset,
-                               @Header(KafkaHeaders.RECEIVED_TIMESTAMP) String timeRecieved
-                               ) {
-        String reponse = "Reception à : "
-                + Instant.ofEpochMilli(Long.parseLong(timeRecieved))
-                +" message : "+ message
-                +" offset : "+offset
-                +" with key : "+ key;
-        logger.info("header reception"  + reponse);
+                               @Header(KafkaHeaders.RECEIVED_TIMESTAMP) String timeRecieved) {
+        try {
+            String reponse = "Reception à : "
+                    + Instant.ofEpochMilli(Long.parseLong(timeRecieved))
+                    + " message : " + message
+                    + " offset : " + offset
+                    + " with key : " + key;
+            logger.info("header reception" + reponse);
+        } catch (Exception e) {
+            logger.error("An error occurred in HeaderListener", e);
+        }
     }
 }
