@@ -1,0 +1,34 @@
+Changelog
+=========
+
+Version: Initial Development
+
+Summary:
+--------
+Enhanced the reliability and maintainability of the Kafka consumer application.
+
+Features:
+---------
+- Added error handling to listeners: BasicListener, DetailListener, HeaderListener.
+- Created new test classes: DetailListenerTest, FilteredListenerTest, HeaderListenerTest.
+- Added complete metadata to the pom.xml.
+- Updated the groupId in the pom.xml.
+- Created a architecture diagram in README.md.
+- Added `application.properties` file.
+
+Improvements:
+-------------
+- Increased robustness of listeners.
+- Improved testability with new test classes.
+- Enhanced project clarity with complete metadata.
+- Updated group id.
+- The architecture is now documented.
+- A new configuration file has been added.
+
+Cleanup:
+-------
+- Removed the unused ConsumerApplicationTests class.
+
+Known issues:
+----------
+- The `FilteredListener` is not fully refactored. The logger is incorrect, there is no error handling and the `topicPartitions` have not been removed correctly.
